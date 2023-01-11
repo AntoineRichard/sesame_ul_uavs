@@ -1,0 +1,53 @@
+<launch>
+    <arg name="ns_prefix"            default="uav_"/>
+    <arg name="id"                   default="1"/>
+
+    <arg name="ual_server"           default="on"/>
+    <arg name="ual_pub_rate"         default="30.0"/>
+
+    <arg name="mode"                 default="sitl"/>
+    <arg name="robot_model"          default="spacer5g"/>
+    <arg name="description_package"  default="sesame_ul_uavs"/>
+    <arg name="material"             default="Orange"/>
+
+    <arg name="pose_frame_id"        default=""/><!-- To publish ual/pose in other frame than local, e.g. map -->
+    <arg name="mavros_offboard_rate" default="30.0"/>
+    <arg name="position_th"          default="0.33"/>
+    <arg name="orientation_th"       default="0.65"/>
+    <arg name="hold_pose_time"       default="3.0"/>
+    <arg name="x"                    default="0"/>
+    <arg name="y"                    default="0"/>
+    <arg name="z"                    default="0.15"/>
+    <arg name="yaw"                  default="0"/>
+
+    <arg name="pose" default="[$(arg x), $(arg y), $(arg z)]"/>
+
+
+    <include file="$(find px4_bringup)/launch/spawn_robot.launch" ns="$(arg ns_prefix)$(arg id)">
+        <arg name="description_package" value="$(arg description_package)"/>
+        <arg name="id"                  value="$(arg id)"/>
+        <arg name="material"            value="$(arg material)"/>
+        <arg name="mode"                value="$(arg mode)"/>
+        <arg name="x"                   value="$(arg x)"/>
+        <arg name="y"                   value="$(arg y)"/>
+        <arg name="z"                   value="$(arg z)"/>
+        <arg name="yaw"                 value="$(arg yaw)"/>
+        <arg name="robot_model" value="$(arg robot_model)"/>
+    </include>
+
+    <node pkg="ual_backend_mavros" type="ual_backend_mavros_server" name="ual" output="screen" ns="$(arg ns_prefix)$(arg id)">
+        <param name="uav_id"                 value="$(arg id)"/>
+        <param name="ual_server"             value="$(arg ual_server)"/>
+        <param name="ual_pub_rate"           value="$(arg ual_pub_rate)"/>
+        <param name="mavros_offboard_rate"   value="$(arg mavros_offboard_rate)"/>
+        <param name="position_th"            value="$(arg position_th)"/>
+        <param name="orientation_th"         value="$(arg orientation_th)"/>
+        <param name="hold_pose_time"         value="$(arg hold_pose_time)"/>
+        <param name="pose_frame_id"          value="$(arg pose_frame_id)"/>
+        <param name="home_pose_parent_frame" value="map"/><!-- default= map -->
+        <!-- Define home pose relative to global map frame -->
+        <rosparam param="home_pose" subst_value="True">$(arg pose)</rosparam><!-- [x,y,z] -->
+        <!-- Define the global map frame geo position and let the UAL estimate the relative home pose -->
+    </node>
+
+</launch>

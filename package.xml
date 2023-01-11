@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>sesame_ul_uavs</name>
+  <version>0.0.0</version>
+  <description>The sesame_ul_uavs package</description>
+
+  <maintainer email="antoine@todo.todo">antoine</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>gazebo_ros</depend>
+  <depend>roscpp</depend>
+  <depend>rospy</depend>
+  <depend>tf</depend>
+  <depend>tf2_ros</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  <depend>gazebo_msgs</depend>
+  <depend>nav_msgs</depend>
+
+  <export>
+    <gazebo_ros gazebo_media_path="${prefix}/worlds"/>
+    <gazebo_ros gazebo_media_path="${prefix}/models"/>
+    <gazebo_ros plugin_path="${prefix}/../../lib" gazebo_media_path="${prefix}" />	
+  </export>
+</package>

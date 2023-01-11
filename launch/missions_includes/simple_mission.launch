@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="flight_plan_path" doc="The path to the flight plan."/>
+  <arg name="namespace" default=""/>
+  <group ns="/$(arg namespace)">
+    <node pkg="sesame_ul_uavs" name="simple_mission" type="simple_mission.py" output="screen">
+       <param name="uav_namespace" type="string" value="$(arg namespace)"/>
+       <param name="flight_plan_path" type="string" value="$(arg flight_plan_path)"/>
+    </node>
+  </group>
+</launch>

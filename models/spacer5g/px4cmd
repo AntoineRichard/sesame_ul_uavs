@@ -1,0 +1,20 @@
+
+#!/bin/sh
+#
+# @name 3DR Iris Quadrotor SITL
+#
+# @type Quadrotor Wide
+#
+# @maintainer Julian Oes <julian@oes.ch>
+#
+
+sh /etc/init.d/rc.mc_defaults
+
+if [ $AUTOCNF = yes ]
+then
+	param set COM_DISARM_PRFLT 0
+fi
+
+set MIXER quad_w
+param set MPC_XY_VEL_MAX 1
+param set MPC_TKO_SPEED 1
