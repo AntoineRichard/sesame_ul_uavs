@@ -1,4 +1,5 @@
 # Sesame UL UAVs
+![OS](https://img.shields.io/badge/OS-Ubuntu_20.04-orange.svg) ![ROS_Noetic](https://img.shields.io/badge/ROS-Noetic-brightgreen.svg) ![Gazebo](https://img.shields.io/badge/Detect&Track-11-lightgrey.svg)
 
 This package provides simulation environments, pre-equipped UAVs, and basic scenarios to run.
 
