@@ -31,6 +31,28 @@ of Software in the Loop (SIL) elements such as PX4.
 ## World and robot settings
 
 ### World definition
+Worlds must contain the following physics settings:
+```
+    <physics type='ode'>
+      <!-- Values shoud be step_size = 0.001*F and time_up= 1000/F-->
+      <!-- 
+              F   step_size   real_time   real_time_factor
+              1   0.001       1000        0.4 (controler works)
+              2   0.002        500        0.6 (controler works)
+              3   0.003        333        0.8-0.9 (controler works)
+              4   0.004        250        (controler does not work)
+              5   0.005        200        (controler does not work)
+              6   0.006        166
+              7   0.007        142
+              8   0.008        125
+              9   0.009        111
+              10  0.01         100
+      -->
+      <max_step_size>0.004</max_step_size>
+      <real_time_factor>1</real_time_factor>
+      <real_time_update_rate>250</real_time_update_rate>
+    </physics>
+```
 
 
 ### Robot settings
