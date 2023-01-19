@@ -41,6 +41,40 @@ Beware, the simulation may take some time to start, up to one or two minutes.
 This is normal behavior and is due to the number of cameras being simulated as well as the use 
 of Software in the Loop (SIL) elements such as PX4.
 
+## Following waypoints
+To follow waypoints we provide a simple script that can be started from a launch file.
+
+### Following a set of waypoints
+To follow waypoints, one can use a launch file like so:
+```
+roslaunch sesame_ul_uavs simple_mission.launch uav_namespace:=uav_1 flight_plan_path:=$(rospack find sesame_ul_uavs)/cfg/grid_pattern_aerolab.yaml
+```
+This has the drone with `id 1` follow a grid like pattern.
+```
+roslaunch sesame_ul_uavs simple_mission.launch uav_namespace:=uav_2 flight_plan_path:=$(rospack find sesame_ul_uavs)/cfg/observer_position.yaml
+```
+This has the drone with `id 2` stay at a fixed position.
+```
+roslaunch sesame_ul_uavs simple_mission.launch uav_namespace:=uav_2 flight_plan_path:=$(rospack find sesame_ul_uavs)/cfg/rectangle_pattern_y_z.yaml
+```
+This last command has a drone with `id 2` repeat an infinite loop.
+
+### Generating a new set of waypoints
+
+```
+---
+frame_id: 'map' # The frame in which the points should be followed
+take_off_altitude: 1.5 # The altitude the drone should reach when taking off
+landing_position: [2.25, 1.75, 1.0, 0.0, 0.0, 0.0, 1.0] # The desired landing position
+loop_waypoints: True # If true, the drone will repeat the waypoint sequence till the script is interrupted.
+waypoints: # The list of waypoints. Having a single waypoint and loop_waypoints: = True will result in the drone hovering in position.
+    - [2.25,  1.75, 1.5, 0.0, 0.0, 1.0, 0]
+    - [2.25, -1.75, 1.5, 0.0, 0.0, 1.0, 0]
+    - [2.25, -1.75, 2.5, 0.0, 0.0, 1.0, 0]
+    - [2.25,  1.75, 2.5, 0.0, 0.0, 1.0, 0]
+```
+
+
 ## World and robot settings
 
 ### World definition
@@ -69,3 +103,4 @@ Worlds must contain the following physics settings:
 
 
 ### Robot settings
+TODO
