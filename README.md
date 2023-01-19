@@ -8,7 +8,7 @@ To run this code you will need ROS Noetic and Gazebo 11.
 ROS Melodic might work but hasn't been tested.
 
 To use this package you need to install the following package:
- - GRVC-UAL : Please use our modified version available here: 
+ - GRVC-UAL : Please use our modified version available here: https://github.com/AntoineRichard/grvc-ual-3.1-noetic
 
 Once both packages (GRVC-UAL and the present package) are in your source folder, the simulation should be ready to go.
 Please note that yo install GRVC-UAL you will also need to install PX4. 
