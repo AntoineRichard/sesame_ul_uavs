@@ -6,6 +6,7 @@
     <arg name="ual_pub_rate"             default="30.0"/>
 
     <arg name="description_package"      default="sesame_ul_uavs"/>
+    <arg name="world_description_package"      default="sesame_ul_uavs"/>
     <arg name="world"                    default="aerolab.world"/>
     <arg name="mode"                     default="sitl"/>
     <arg name="robot_model"              default="spacer5g"/>
@@ -22,8 +23,8 @@
     <arg name="hold_pose_time"           default="3.0"/>
 
 
-    <include file="$(find sesame_ul_uavs)/launch/includes/start_grvc_aerolab.launch">
-        <arg name="description_package"  value="$(arg description_package)"/>
+    <include file="$(find sesame_ul_uavs)/launch/includes/start_grvc_world.launch">
+        <arg name="description_package"  value="$(arg world_description_package)"/>
         <arg name="world"                value="$(arg world)"/>
         <arg name="mode"                 value="$(arg mode)"/>
     </include>

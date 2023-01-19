@@ -17,6 +17,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     <arg name="mode" default="sitl"/>
     <arg name="robot_model" default="spacer5g"/>
     <arg name="description_package" default="sesame_ul_uavs"/>
+    <arg name="world_description_package" default="sesame_ul_uavs"/>
 
     <arg name="pose_frame_id" default=""/><!-- To publish ual/pose in other frame than local, e.g. map -->
     <arg name="mavros_offboard_rate" default="30.0"/>
