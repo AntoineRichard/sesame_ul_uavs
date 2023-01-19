@@ -18,9 +18,17 @@ Follow to installation instructions available in the GRVC-UAL package.
 ## How to launch?
 
 To launch a simulation with two of the drones used for Sesame inside the Univeristy of Luxemburg's Aerolab envrionment use the following command:
+```
+roslaunch sesame_ul_uavs aerolab_two_drones.launch
+```
 A single drone can also be simulated using this command:
-
+```
+roslaunch sesame_ul_uavs aerolab_one_drone.launch
+```
 To spawn a drone one can use the following launch file:
+```
+roslaunch sesame_ul_uavs spawn_drone.launch id:=1 robot_model:=spacer5g description_package:=sesame_ul_uavs
+```
 
 To start a world one can use the following launch file:
 ```
