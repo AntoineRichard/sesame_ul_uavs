@@ -8,7 +8,7 @@
         <!-- Launch Gazebo simulation -->
         <rosparam param="/use_sim_time">true</rosparam>
         <node pkg="px4_bringup" type="launch_gzworld.py" name="gazebo_world" output="screen"
-        args="-physics=ode -world=$(find sesame_ul_uavs)/worlds/$(arg world) -description_package=$(arg description_package)">
+        args="-physics=ode -world=$(arg world) -description_package=$(arg description_package)">
             <rosparam param="sim_origin">[49.62389, -5.9310746.14944, 343.0]</rosparam><!-- [lat,lon,alt] -->
         </node>
     </group>
