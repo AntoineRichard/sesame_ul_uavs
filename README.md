@@ -22,7 +22,12 @@ A single drone can also be simulated using this command:
 
 To spawn a drone one can use the following launch file:
 
-To start a world one can use the following launch file: roslaunch sesame_ul_uavs start_grvc_world.launch
+To start a world one can use the following launch file:
+```
+roslaunch sesame_ul_uavs start_grvc_world.launch description_package:=A_CATKIN_PACKAGE world:=A_WORLD
+roslaunch sesame_ul_uavs start_grvc_world.launch description_package:=sesame_ul_uavs world:=aerolab.world
+roslaunch sesame_ul_uavs start_grvc_world.launch description_package:=vineyard world:=vineyard.world
+```
 
 Beware, the simulation may take some time to start, up to one or two minutes.
 This is normal behavior and is due to the number of cameras being simulated as well as the use 
