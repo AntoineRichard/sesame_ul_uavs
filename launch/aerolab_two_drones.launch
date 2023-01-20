@@ -15,12 +15,14 @@
     <arg name="position_th"              default="0.33"/>
     <arg name="orientation_th"           default="0.65"/>
     <arg name="hold_pose_time"           default="3.0"/>
+    <arg name="headless"                 default="True"/>
 
 
     <include file="$(find sesame_ul_uavs)/launch/includes/start_grvc_world.launch">
         <arg name="description_package"  value="$(arg world_description_package)"/>
         <arg name="world"                value="$(arg world)"/>
         <arg name="mode"                 value="$(arg mode)"/>
+        <arg name="headless"             value="$(arg headless)"/>
     </include>
 
     <include file="$(find sesame_ul_uavs)/launch/includes/spawn_drone.launch">
