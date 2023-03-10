@@ -10,7 +10,7 @@ aluminum peripherial evaluation case.
 
 <robot name="sensor_d435" xmlns:xacro="http://ros.org/wiki/xacro">
   <!--File includes-->
-  <xacro:include filename="$(find sesame_ul_uavs)/urdf/_d435.gazebo.xacro"/>
+  <xacro:include filename="$(find sesame_ul_uavs)/urdf/_d435_v2.gazebo.xacro"/>
 
   <xacro:macro name="sensor_d435" params="name namespace parent *origin">
 	

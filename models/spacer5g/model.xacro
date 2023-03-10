@@ -10,7 +10,7 @@
   <xacro:arg name='visual_material' default='DarkGrey' />
   <xacro:arg name='enable_mavlink_interface' default='true' />
   <xacro:arg name='enable_gps_plugin' default='true' />
-  <xacro:arg name='gps_noise' default='true' />
+  <xacro:arg name='gps_noise' default='false' />
   <xacro:arg name='enable_ground_truth' default='true' />
   <xacro:arg name='enable_logging' default='false' />
   <xacro:arg name='robot_namespace' default='' />
